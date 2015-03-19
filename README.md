@@ -36,9 +36,9 @@ If you're into TypeScript (entirely optional), you'll also want:
 
 * [typings/knockout.clear/knockout.clear.d.ts](https://github.com/danielearwicker/knockout.clear/blob/master/typings/knockout.clear/knockout.clear.d.ts)
 
-## The `execute` binding
+## The `keepAlive` binding
 
-The `execute` binding is useful when you want to create a `ko.pureComputed` that acts as a side-effecting function that re-executes when its dependencies change, but doesn't return a value and would not normally be depended on by anything else.
+The `keepAlive` binding is useful when you want to create a `ko.pureComputed` that acts as a side-effecting function that re-executes when its dependencies change, but doesn't return a value and would not normally be depended on by anything else.
 
 To keep it awake, first you add it to your view model:
 
@@ -50,7 +50,7 @@ To keep it awake, first you add it to your view model:
 
 Then you bind to it in your HTML:
 
-    <!-- ko execute: pointlessLogging --><!-- /ko -->
+    <!-- ko keepAlive: pointlessLogging --><!-- /ko -->
 
 That's it. When you have a simple viewModel/HTML scenario, this is the easy way to keep your `pureComputed` re-executing as long as the view is on the page.
 
@@ -135,7 +135,7 @@ Install node and grunt-cli. Clone this repository and install it:
     cd knockout.clear
     npm install
 
-That will run the command-line tests. There is a further minor test for the `execute` binding that you can run by opening the runner page in your browser:
+That will run the command-line tests. There is a further minor test for the `keepAlive` binding that you can run by opening the runner page in your browser:
 
     spec/runner.html
 
